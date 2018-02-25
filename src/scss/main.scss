@@ -1,12 +1,12 @@
 /*
   You can use import statements to include partials:
  */
-@import "imports/reset.css";
+@import 'reset';
 
 /*
   Import the masthead partials
  */
-@import "imports/masthead.css";
+@import 'masthead';
 
 /*
   Or add your statements here:
