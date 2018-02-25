@@ -1,20 +1,57 @@
-.parallax {
+header {
 	/* Background image */
-	background-image: url("/masthead.jpg");
-	
-	/* Full height */
-	height: 100%;
+	background-image: url("/masthead_400x160.jpg");
+	height: 160px;
+	max-width: 400px;
+
+	margin: auto;
+	position: relative;
 	
 	/* Parallax scrolling effect */
 	background-attachment: fixed;
-	background-position: center;
+	background-position-x: center;
+	background-position-y: top;
 	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-/* Turn off scrolling for tablets and phones */
-@media only screen and (max-device-width: 1366px) {
-    .parallax {
-        background-attachment: scroll;
+	background-size: scroll;
+	display: block;
+	
+	text-transform: uppercase;
+	color: white;
+	font-weight: 800;
+	font-size: 0.8rem;
+	
+	/* Turn off scrolling for tablets and phones */
+	@media only screen and (max-device-width: 1366px) {
+		background-attachment: scroll;
+	}
+	
+	@media only screen and #{$vp-medium} {
+		background-image: url("/masthead_1000x400.jpg");
+		height: 400px;
+		font-size: 1.5rem;
+		max-width: 1000px;
+    }
+	
+	@media only screen and #{$vp-large} {
+		background-image: url("/masthead_2000x800.jpg");
+		height: 800px;
+		max-width: 2000px;
+		font-size: 2.0rem;
     }
 }
+
+
+.site-branding {
+	position: absolute;
+	margin: auto;
+	bottom: 0;
+	left: 0;
+	padding-left: 2em;
+	padding-bottom: 1em;
+}
+
+header h1 {
+	margin: 0px;
+
+}
+
