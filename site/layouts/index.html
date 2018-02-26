@@ -1,12 +1,26 @@
-{{ partial "header" . }}
+{{ define "main" -}}
+
 <header>
   <div class="site-branding">
 	<h1>{{ $.Site.Title }}</h1>
   </div> 
 </header>
 <div class="content">
-<p>
-  Hooray 🎉 - you've built this with <a href="https://github.com/netlify/victor-hugo">Victor-Hugo</a>!
-</p>
+
+<div class="posts">
+{{ range .Data.Pages -}}
+<div class="post">
+  <h1 class="post-title">
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </h1>
+  <span class="post-date">{{ .Data.Format "Mon, Jan 2, 2018" }}</span>
+  {{ .Summary }}
+  {{ if .Truncated }}
+  <div class="read-more-link">
+	<a href="{{ .RelPermalink }}">Read More...</a>
+  </div>
+  {{- end }}
 </div>
-{{ partial "footer" . }}
+{{- end }}
+</div>
+{{- end }}
