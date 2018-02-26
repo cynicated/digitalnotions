@@ -6,21 +6,29 @@
   </div> 
 </header>
 <div class="content">
-
+<div class="navigation">
+<ul>
+{{ range $name, $items := .Site.Taxonomies.categories }}
+  <li>
+    <a href="{{ $.Site.BaseURL }}categories/{{ $name | urlize | lower }}/">{{ $name }} &nbsp; {{ len $items }}</a>
+  </li>
+{{- end }}
+</ul>
+</div>
 <div class="posts">
 {{ range .Data.Pages -}}
-<div class="post">
+<article>
   <h1 class="post-title">
     <a href="{{ .Permalink }}">{{ .Title }}</a>
   </h1>
-  <span class="post-date">{{ .Data.Format "Mon, Jan 2, 2018" }}</span>
+  <span class="post-date">{{ .Date.Format "Monday, Jan 2, 2006" }}</span>
   {{ .Summary }}
   {{ if .Truncated }}
   <div class="read-more-link">
 	<a href="{{ .RelPermalink }}">Read More...</a>
   </div>
   {{- end }}
-</div>
+</article>
 {{- end }}
 </div>
 {{- end }}
